@@ -1,0 +1,177 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>register</title>
+<link href="sgnup.css" rel="stylesheet" type="text/css" />
+<link href="https://fonts.googleapis.com/css?family=Play" rel="stylesheet">
+    <style>
+    body
+{
+    font-family: Tahoma, Geneva, sans-serif;
+    color: #fff;
+    {% load static %}
+    background: url({% static 'input/BOT.jpg' %});
+    background-size: cover;
+    background-position:center;
+    background-attachment:fixed;
+}
+.signup
+{
+    background:rgba(44, 62, 80, 0.7);
+	padding:10px;
+	width:90%;
+	margin:auto;
+	
+	height:500px;
+	margin-left:180px;
+	margin:0 auto;
+	
+}
+form
+{
+    width: 100%;
+    text-align: center;
+    height:100vh;
+}
+input
+{
+    
+    width: 240px;
+    text-align: center;
+    background: transparent;
+    border: none;
+    border-bottom: 1px solid #fff;
+    font-family: 'Play', sans-serif;
+    font-size: 16px;
+    font-weight: 200px;
+    padding: 10px 0;
+    transition: border 0.5s;
+    outline: none;
+    color: #fff;
+}
+input[type=submit]
+{
+        
+        background-color: black;
+        border: none;
+        border-radius:50%;
+        color: white;
+        padding: 20px 34px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 20px;
+        margin: 4px 2px;
+        cursor: pointer;
+      
+}
+.button:hover
+{
+    color: #fff;
+    background-color: black;
+}
+h2
+{
+    color: #000;
+    
+}
+::placeholder {
+    color:aliceblue;
+    opacity: 0.8; /* Firefox */
+}
+
+    #msg {
+    visibility: hidden;
+    min-width: 250px;
+    background-color:yellow;
+    color: #000;
+    text-align: center;
+    border-radius: 2px;
+    padding: 16px;
+    position: fixed;
+    z-index: 1;
+    right: 30%;
+    top: 30px;
+    font-size: 17px;
+	margin-right:30px;
+}
+
+#msg.show {
+    visibility: visible;
+    -webkit-animation: fadein 0.5s, fadeout 0.5s 2.5s;
+    animation: fadein 0.5s, fadeout 0.5s 2.5s;
+}
+
+@-webkit-keyframes fadein {
+    from {top: 0; opacity: 0;} 
+    to {top: 30px; opacity: 1;}
+}
+
+@keyframes fadein {
+    from {top: 0; opacity: 0;}
+    to {top: 30px; opacity: 1;}
+}
+
+@-webkit-keyframes fadeout {
+    from {top: 30px; opacity: 1;} 
+    to {top: 0; opacity: 0;}
+}
+
+@keyframes fadeout {
+    from {top: 30px; opacity: 1;}
+    to {top: 0; opacity: 0;}
+}
+.text-typing p {
+  margin-top: 2cm;
+  white-space:nowrap;
+  overflow:hidden;
+
+  font-size: large;
+  margin-left: 35%;
+  animation:typing 4s steps(22,end) forwards,
+            blink 1s infinite;
+}
+@keyframes typing {
+  0% { width:0% }
+  100% { width:100% }
+}
+@keyframes blink {
+  0%,100% {
+    border-right:2px solid transparent;
+  }
+  50% {
+    border-right:2px solid #222;
+  }
+}
+    </style>
+</head>
+
+<body>
+    
+    <div class="text-typing">
+        <p>Fill out the form to make your own resume BOT !&nbsp;</p>
+    </div>
+<div class="signup">
+    {% csrf_token %}
+    
+    <form action="/registeruser/" method="POST">
+    {% csrf_token %}
+
+        
+    <h2 style="color: #fff;">Sign Up</h2>
+    <input type="text" placeholder="Username" name="username" minlength="8" required pattern="[a-zA-Z0-9]+" value="{{username}}" required><br><br>
+    <input type="password" placeholder="Password" minlength="8" name="password" required pattern="[a-zA-Z0-9]+" required><br><br>
+    <input type="password" placeholder="confirm Password" minlength="8" name="confirm password" required pattern="[a-zA-Z0-9]+" required><br><br>
+
+    <input type="email" placeholder="Email Address" name="email" value="{{email}}" required><br><br>
+
+       
+    <div class="btn-layer"></div>
+    <input type="submit" value="Register"><br><br>
+
+        Already have account?<a href="/" style="text-decoration: none; font-family: 'Play', sans-serif; color: yellow;">&nbsp;Log In</a>
+    </form>
+    
+    </div>
+</body>
+</html>

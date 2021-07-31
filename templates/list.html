@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LISTs</title>
+</head>
+<style>
+
+.dark-row{
+    background:#AEC5E8;
+    
+}
+.light-row{
+    
+    background:#F1F3F0;
+}
+
+.movie-table-head{
+    
+    background: ;
+}
+</style>
+<body>
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+<!------ Include the above in your HEAD tag ---------->
+
+<div class="container">
+	<div class="row">
+		<div class="table-responsive table-bordered movie-table">
+            <table class="table movie-table">
+                  <thead>
+                  <tr class= "movie-table-head">
+                      <th>name</th>
+                         
+                      <th>CVs</th>
+                  </tr>
+              </thead>   
+              <tbody>
+                  
+                <!--row-->
+                {% for y in x %}
+                <tr class= "dark-row">
+                    <td >{{y.name}}</td>
+                    
+                    <td><a href="/makebot/{{y.id}}" class="button">click to get your CV</a></td>                                      
+                </tr>
+                {% endfor %}
+                <!--/.row-->
+
+                <!--row-->
+                
+                <!--/.row-->
+                
+                
+  
+              </tbody>
+            </table>
+            </div>
+	</div>
+</div>
+
+</body>
+</html>

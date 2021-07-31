@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>bot</title>
+</head>
+<style>
+    *{
+margin: 0;
+padding: 0;
+}
+body{
+    {% load static %}
+    background: url({% static 'input/BOT.jpg' %}) no-repeat center center fixed;
+    background-size: cover; 
+    background-position:absolute;
+    width: fit-content;
+
+
+    
+
+    
+
+}
+
+.container{ 
+    color: white;
+    position: absolute;
+    top: 13%;
+    left: 20%;
+    text-align: center;
+    background-size: cover;
+    translate: -10%,0;
+    
+    
+
+    
+}
+.container h1{
+    font-family: 'Heebo', sans-serif;
+    width: 50%;
+    display: inline-block;
+    font-size: 40px;
+    border-bottom: 5px solid purple;
+    margin-bottom: 15px;
+    padding: 13px 0;
+}
+.box{
+    width: 100%; 
+    margin: 22px 0px;
+    border-bottom: 2px solid purple;
+}
+.box input{  
+    background: none;
+    width: 75%;
+    padding: 5px 10px;
+    font-size: 20px;
+    border: none;
+    outline:none;
+    color: white;
+}
+.input{
+    color: purple;
+}
+.btn{
+    color: white;
+    cursor: pointer;
+    outline: none; 
+    margin: 12px 0;
+    padding: 10px 21px;
+    border: 2px solid purple;
+    border-radius: 10px;
+    font-size: 18px;
+    background: none;
+    font-weight: bold;
+    
+}
+.box i{ 
+    width: 25px; 
+    text-align: center;
+}
+.btn:hover{
+    opacity: 0.5;
+    color: purple; 
+    background: white; 
+    
+}
+.text-typing {
+  padding:20px 30px;
+  
+  font-size:35px;
+  font-family:monospace;
+  border-radius:50px;
+}
+.text-typing p {
+  margin:0px;
+  white-space:nowrap;
+  overflow:hidden;
+  animation:typing 4s steps(22,end) forwards,
+            blink 1s infinite;
+}
+@keyframes typing {
+  0% { width:0% }
+  100% { width:100% }
+}
+@keyframes blink {
+  0%,100% {
+    border-right:2px solid transparent;
+  }
+  50% {
+    border-right:2px solid #222;
+  }
+}
+
+</style>
+<body>
+    {% csrf_token %}
+    <form  action="/login/" method="POST">
+
+    {% csrf_token %}
+    <div class="container">
+        <div class="text-typing">
+            <p>login to make your BOT&nbsp;</p>
+        </div>
+        <div class="box">
+            <i class="fa fa-envelope"></i>
+            <input type="username" name="username" id="username" placeholder="enter username" style="color: steelblue;">
+        </div>
+        <div class="box">
+            <i class="fa fa-key"></i>
+            <input type="password" name="password" id="password" placeholder="Enter Your Password">
+        </div>
+        <button class="btn" >Sign In</button>
+        <a href="/registeruser" button class="btn" >Register</button></a>
+        
+
+        
+        
+    </div>
+    </form>
+
+
+
+</body>
+</html>
