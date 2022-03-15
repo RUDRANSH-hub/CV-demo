@@ -1,1 +1,1 @@
-web: gunicorn --chdir src myproject.wsgi --log-file -
+web: gunicorn --chdir src bot.wsgi --log-file -
